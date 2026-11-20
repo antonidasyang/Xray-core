@@ -213,7 +213,7 @@ func parseDomain(d *Domain) (strmatcher.Matcher, error) {
 
 func newDomainMatcherFactory() DomainMatcherFactory {
 	switch runtime.GOOS {
-	case "ios", "android":
+	case "ios", "android", "openharmony":
 		return &CompactMphDomainMatcherFactory{shared: utils.NewWeakCacheMap[string, strmatcher.MphValueMatcher]()}
 	default:
 		return &MphDomainMatcherFactory{shared: utils.NewWeakCacheMap[string, strmatcher.MphValueMatcher]()}
